@@ -1,0 +1,12 @@
+﻿.row:before,
+.row:after,
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: " ";
+}
+.row:after,
+.clearfix:after {
+    clear: both;
+}
+
