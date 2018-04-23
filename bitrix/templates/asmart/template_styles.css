@@ -525,15 +525,17 @@ body.show-basket {
     z-index: 8;
     background-color: #fff;
 }
+.product-detail .container,
 .item-product-modal .container{
     position: relative;
 }
+.product-detail .link-to-basket-in-item,
 .item-product-modal .link-to-basket-in-item{
     top: 0;
     right: 181px;
     display: inline-block;
     padding: 6px 9px 9px 9px;
-     opacity: 1;
+    opacity: 0;
     color: #ff5617;
     left: auto;
     text-decoration: underline;
@@ -716,7 +718,7 @@ body.show-basket {
     transform: translateX(-50%);
 }
 .link-to-basket-show{
-    opacity: 1;
+    opacity: 1!important;
 }
 .link-to-basket-in-item:hover{
     color: #818181;
@@ -1471,7 +1473,7 @@ footer {
     .aside {
         top: 0;
         width: 100%;
-        margin-top: 108px;
+        margin-top: 0;
         height: 100%;
         right: 0;
         opacity: 0;

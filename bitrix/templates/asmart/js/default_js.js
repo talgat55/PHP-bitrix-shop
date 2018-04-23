@@ -149,11 +149,11 @@ $(document).ready(function () {
                     if(detailid ==$id ){
 
                         $('.block-price-order').html(' ').append('<div class="container">\n' +
-                            '                <div class="block-price-order-walp  remove-item"  data-id="' + detailid + '">\n' +
+                            '                <a href="#" class="link-to-basket-in-item">Перейти в корзину</a><div class="block-price-order-walp  remove-item"  data-id="' + detailid + '">\n' +
                             '                    <div class="price-value-detail">\n' +
                             '                        <span>' + detailprice + '</span><i class="fas fa-ruble-sign"></i>\n' +
                             '                    </div>\n' +
-                            '                    <a href="#" class="link-to-basket-in-item">Перейти в корзину</a><a href="#" class="addtocard  remove-item">Удалить</a>\n' +
+                            '                    <a href="#" class="addtocard  remove-item">Удалить</a>\n' +
                             '                </div>\n' +
                             '            </div>');
 
@@ -570,6 +570,7 @@ $(document).ready(function () {
         }
         // for single item detail page
         if ($('.product-detail').length > 0) {
+
             var priceVlaue = $('.price-value-detail span').html();
             var idVlaue = $('.block-price-order-walp').attr('data-id');
 
@@ -579,7 +580,6 @@ $(document).ready(function () {
                 '                        <span>' + priceVlaue + '</span><i class="fas fa-ruble-sign"></i>\n' +
                 '                    </div>\n' +
                 '                    <a href="#" class="addtocard  ">Заказать</a>\n' +
-                '\n' +
                 '                </div>\n' +
                 '            </div>');
 
@@ -782,7 +782,7 @@ $(document).ready(function () {
                     if (valuecookies.indexOf($itemid) > -1) {
 
                         $('.block-price-order').append('<div class="container">\n' +
-                            '                   <a href="#" class="link-to-basket-in-item">Перейти в корзину</a> <div class="block-price-order-walp remove-item">\n' +
+                            '                   <a href="#" class="link-to-basket-in-item link-to-basket-show">Перейти в корзину</a> <div class="block-price-order-walp remove-item">\n' +
                             '                        <div class="price-value-modal" data-id="' + $itemid + '">\n' +
                             '                            <span>' + priceValue + '</span><i class="fas fa-ruble-sign"></i>\n' +
                             '                        </div>\n' +
@@ -882,6 +882,8 @@ $(document).ready(function () {
             $('.block-price-order-walp .addtocard').removeClass('remove-item').html(' ').html('Заказать');
             $('.block-price-order-walp').removeClass('remove-item');
 
+            $(this).parent().parent().find('.link-to-basket-in-item').removeClass('link-to-basket-show');
+
             return;
         }
         var $this = $(this).parent().parent().parent().parent().parent();
@@ -949,10 +951,11 @@ $(document).ready(function () {
 
 
             if ($(v).data('item-id') == $id) {
-
+                $(v).find('.link-to-basket-in-item').addClass(' link-to-basket-show');
                 $(v).find('.addtocard').val('Удалить').addClass(' remove-item');
 
                 $(v).find('.overlay-img-layer').fadeIn(400);
+
             }
         });
 
@@ -960,6 +963,8 @@ $(document).ready(function () {
         $(this).html('Удалить');
         $(this).addClass(' remove-item');
         $(this).parent().addClass(' remove-item');
+        $(this).parent().parent().append('<a href="#" class="link-to-basket-in-item">Перейти в корзину</a>');
+        $(this).parent().parent().find('.link-to-basket-in-item').addClass(' link-to-basket-show');
 
 
         var $lengthitems = $('.content-basket .basket-item ').length;
@@ -1031,12 +1036,15 @@ function ShowBasket() {
             e.preventDefault();
             if ($('body').hasClass('show-basket-mobile')) {
                 $('body').removeClass('show-basket-mobile');
+                $('header').removeClass(' fix-header');
             } else {
                 $('body').addClass(' show-basket-mobile');
+                $('header').addClass(' fix-header');
             }
         });
         $('.overlay-layer').live('click', function () {
             $('body').removeClass('show-basket-mobile');
+            $('header').removeClass(' fix-header');
         });
     }
 }
