@@ -149,7 +149,7 @@ $(document).ready(function () {
                     if(detailid ==$id ){
 
                         $('.block-price-order').html(' ').append('<div class="container">\n' +
-                            '                <a href="#" class="link-to-basket-in-item">Перейти в корзину</a><div class="block-price-order-walp  remove-item"  data-id="' + detailid + '">\n' +
+                            '                <a href="#" class="link-to-basket-in-item link-to-basket-show">Перейти в корзину</a><div class="block-price-order-walp  remove-item"  data-id="' + detailid + '">\n' +
                             '                    <div class="price-value-detail">\n' +
                             '                        <span>' + detailprice + '</span><i class="fas fa-ruble-sign"></i>\n' +
                             '                    </div>\n' +
